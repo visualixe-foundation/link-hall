@@ -1,15 +1,35 @@
+export const CATEGORIES = [
+  "Social",
+  "AI",
+  "Tools",
+  "Learning",
+  "Sports",
+  "Movies & Watch",
+  "Torrents",
+  "Music",
+  "Music Download",
+  "Playlist Transfer",
+  "Video downloaders",
+  "Dev & Tech",
+  "Shopping",
+  "Fashion",
+  "Fun",
+] as const;
+
+export type Category = (typeof CATEGORIES)[number];
+
 export type Site = {
   name: string;
   url: string;
   description: string;
-  category: string;
+  category: Category;
   tags?: string[];
 };
 
 // Add new sites here. Each one needs: name, url, description, category.
 // tags are optional but make search better.
 // Category names here are also what shows up in the sidebar / filter list,
-// in the order they first appear below.
+// in the order they first appear below (prefer CATEGORIES order).
 
 export const sites: Site[] = [
   // Social
@@ -158,13 +178,6 @@ export const sites: Site[] = [
     tags: ["design", "graphics", "templates"],
   },
   {
-    name: "PhoText",
-    url: "https://phototext.shop",
-    description: "AI tool to click and edit text inside images and screenshots.",
-    category: "Tools",
-    tags: ["ai", "image", "text edit", "ocr"],
-  },
-  {
     name: "SoBrief",
     url: "https://sobrief.com",
     description: "AI-powered book summaries in text and audio, across many languages.",
@@ -261,7 +274,7 @@ export const sites: Site[] = [
   // Sports
   {
     name: "FotMob",
-    url: "https://fotmob.com",
+    url: "https://www.fotmob.com",
     description: "Live football scores, stats and news.",
     category: "Sports",
     tags: ["football", "scores", "live"],
@@ -272,15 +285,6 @@ export const sites: Site[] = [
     description: "Live sports coverage, scores and highlights.",
     category: "Sports",
     tags: ["football", "live", "scores"],
-  },
-
-  // Live football
-  {
-    name: "FawaNews",
-    url: "https://www.fawanews.sc",
-    description: "Sports news and live match coverage.",
-    category: "Live football",
-    tags: ["football", "news", "live"],
   },
 
   // Movies & Watch
@@ -400,13 +404,6 @@ export const sites: Site[] = [
     tags: ["youtube", "download", "video"],
   },
   {
-    name: "Y2Mate",
-    url: "https://v38.www-y2mate.com",
-    description: "YouTube and video converter / downloader.",
-    category: "Video downloaders",
-    tags: ["youtube", "mp3", "mp4"],
-  },
-  {
     name: "YT5s",
     url: "https://yt5s.in",
     description: "Free YouTube video and audio downloader.",
@@ -415,7 +412,7 @@ export const sites: Site[] = [
   },
   {
     name: "SaveFrom",
-    url: "https://en1.savefrom.net",
+    url: "https://savefrom.net",
     description: "Download videos from YouTube and other sites.",
     category: "Video downloaders",
     tags: ["youtube", "download", "video"],

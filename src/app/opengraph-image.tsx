@@ -16,8 +16,8 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "72px",
-          backgroundColor: "#F4F5F7",
-          color: "#111827",
+          backgroundColor: "#0F1115",
+          color: "#E7E5DE",
           fontFamily: "system-ui, sans-serif",
         }}
       >
@@ -34,7 +34,7 @@ export default function OpenGraphImage() {
               width: "16px",
               height: "16px",
               borderRadius: "999px",
-              backgroundColor: "#0D9488",
+              backgroundColor: "#14B8A6",
             }}
           />
           <div
@@ -43,7 +43,7 @@ export default function OpenGraphImage() {
               fontWeight: 600,
               letterSpacing: "0.06em",
               textTransform: "uppercase",
-              color: "#0D9488",
+              color: "#14B8A6",
             }}
           >
             Curated directory
@@ -63,7 +63,7 @@ export default function OpenGraphImage() {
         <div
           style={{
             fontSize: 30,
-            color: "#6B7280",
+            color: "#9B9A93",
             maxWidth: 820,
             lineHeight: 1.4,
           }}

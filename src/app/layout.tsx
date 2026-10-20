@@ -11,8 +11,10 @@ const siteName = "Link Hall";
 const title = "Link Hall: A directory of good sites";
 const description =
   "A hand-picked directory of good websites, sorted by category — with search and shareable filters.";
+const siteUrl = "https://link-hall.vercel.app";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: title,
     template: `%s · ${siteName}`,
@@ -28,9 +30,13 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Visualixe Foundation" }],
   creator: "Visualixe Foundation",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
+    url: siteUrl,
     siteName,
     title,
     description,
