@@ -10,22 +10,35 @@ function applyTheme(theme: Theme) {
   else root.classList.remove("dark");
 }
 
+function resolveTheme(): Theme {
+  const stored = localStorage.getItem("link-hall-theme");
+  if (stored === "light" || stored === "dark") return stored;
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+}
+
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>("light");
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem("link-hall-theme") as Theme | null;
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const initial: Theme =
-      stored === "light" || stored === "dark"
-        ? stored
-        : prefersDark
-          ? "dark"
-          : "light";
+    const initial = resolveTheme();
     setTheme(initial);
     applyTheme(initial);
     setReady(true);
+
+    const mq = window.matchMedia("(prefers-color-scheme: dark)");
+    const onChange = () => {
+      // Only follow system if the user has not forced a choice
+      const stored = localStorage.getItem("link-hall-theme");
+      if (stored === "light" || stored === "dark") return;
+      const next: Theme = mq.matches ? "dark" : "light";
+      setTheme(next);
+      applyTheme(next);
+    };
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
   }, []);
 
   const toggle = () => {
@@ -46,12 +59,10 @@ export default function ThemeToggle() {
       {!ready ? (
         <span className="h-4 w-4" />
       ) : theme === "dark" ? (
-        /* Sun */
         <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
           <path d="M10 2a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 0110 2zM10 15a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 0110 15zM10 7a3 3 0 100 6 3 3 0 000-6zM15.657 4.343a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zM6.464 13.536a.75.75 0 010 1.06l-1.06 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zM18 10a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0118 10zM5 10a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 015 10zM15.657 15.657a.75.75 0 01-1.06 0l-1.06-1.06a.75.75 0 111.06-1.06l1.06 1.06a.75.75 0 010 1.06zM6.464 6.464a.75.75 0 01-1.06 0l-1.06-1.06a.75.75 0 011.06-1.06l1.06 1.06a.75.75 0 010 1.06z" />
         </svg>
       ) : (
-        /* Moon */
         <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
           <path
             fillRule="evenodd"
