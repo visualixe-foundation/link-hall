@@ -427,6 +427,13 @@ export const sites: Site[] = [
     category: "Video downloaders",
     tags: ["download", "video", "audio", "privacy"],
   },
+  {
+    name: "Save Free",
+    url: "https://www.save-free.com/",
+    description: "Free Instagram downloader for photos, videos, stories, reels, and profile pictures — no login required.",
+    category: "Video downloaders",
+    tags: ["instagram", "download", "reels", "stories", "photos"],
+  },
 
   // Dev & Tech
   {
