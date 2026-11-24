@@ -461,6 +461,13 @@ export const sites: Site[] = [
     category: "Dev & Tech",
     tags: ["portfolio", "ai", "developer", "education"],
   },
+  {
+    name: "OneCompiler",
+    url: "https://onecompiler.com",
+    description: "Free online compiler and IDE for 70+ programming languages.",
+    category: "Dev & Tech",
+    tags: ["compiler", "ide", "code", "programming"],
+  },
 
   // Shopping
   {
