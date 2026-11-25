@@ -286,6 +286,13 @@ export const sites: Site[] = [
     category: "Sports",
     tags: ["football", "live", "scores"],
   },
+  {
+    name: "Soccer TV HD Live",
+    url: "https://www.soccertvhdlive.com/",
+    description: "Live HD football/soccer streaming and match coverage.",
+    category: "Sports",
+    tags: ["football", "soccer", "live", "streaming", "tv"],
+  },
 
   // Movies & Watch
   {
