@@ -302,6 +302,13 @@ export const sites: Site[] = [
     category: "Movies & Watch",
     tags: ["movies", "download", "search", "video"],
   },
+  {
+    name: "TBCPL",
+    url: "https://tbcpl.lol/",
+    description: "The Best Couch Potato List — curated streaming sites for movies, TV, anime, manga, live TV & more.",
+    category: "Movies & Watch",
+    tags: ["streaming", "movies", "tv", "anime", "manga", "curated"],
+  },
 
   // Torrents
   {
