@@ -293,6 +293,20 @@ export const sites: Site[] = [
     category: "Sports",
     tags: ["football", "soccer", "live", "streaming", "tv"],
   },
+  {
+    name: "FawaNews",
+    url: "http://www.fawanews.sc/",
+    description: "Sports news, football coverage and live match schedules.",
+    category: "Sports",
+    tags: ["football", "soccer", "news", "live", "scores"],
+  },
+  {
+    name: "Score808 Live",
+    url: "https://www.score808live.tv/",
+    description: "Live football scores, streams and sports coverage.",
+    category: "Sports",
+    tags: ["football", "soccer", "live", "scores", "streaming"],
+  },
 
   // Movies & Watch
   {
