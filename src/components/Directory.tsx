@@ -210,7 +210,7 @@ export default function Directory({ sites }: { sites: Site[] }) {
                 className={`whitespace-nowrap rounded-full px-3.5 py-1.5 text-left text-sm font-medium transition-colors ${
                   activeCategory === null
                     ? "bg-accent text-white shadow-sm"
-                    : "bg-surface text-soft ring-1 ring-border hover:bg-accent-soft hover:text-accent-hover"
+                    : "text-soft hover:bg-accent-soft hover:text-accent-hover"
                 }`}
               >
                 All sites{" "}
@@ -232,7 +232,7 @@ export default function Directory({ sites }: { sites: Site[] }) {
                     className={`whitespace-nowrap rounded-full px-3.5 py-1.5 text-left text-sm font-medium transition-colors ${
                       active
                         ? "bg-accent text-white shadow-sm"
-                        : "bg-surface text-soft ring-1 ring-border hover:bg-accent-soft hover:text-accent-hover"
+                        : "text-soft hover:bg-accent-soft hover:text-accent-hover"
                     }`}
                   >
                     {cat}{" "}
