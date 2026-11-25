@@ -531,13 +531,6 @@ export const sites: Site[] = [
 
   // Fun
   {
-    name: "FakeUpdate",
-    url: "https://fakeupdate.net",
-    description: "Full-screen fake OS update screens for harmless pranks.",
-    category: "Fun",
-    tags: ["prank", "windows", "macos", "joke"],
-  },
-  {
     name: "Bored Panda",
     url: "https://www.boredpanda.com",
     description: "Viral stories, art, and entertainment from around the web.",
