@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type MouseEvent } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { CATEGORIES, type Site } from "@/data/sites";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -130,6 +130,13 @@ export default function Directory({ sites }: { sites: Site[] }) {
     setQuery("");
     updateUrl("", activeCategory);
     searchInputRef.current?.focus();
+  };
+
+  const onTagClick = (tag: string, e: MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setQuery(tag);
+    updateUrl(tag, activeCategory);
   };
 
   const clearAllFilters = () => {
@@ -306,7 +313,7 @@ export default function Directory({ sites }: { sites: Site[] }) {
             {hasFilter && (
               <p className="mt-2 text-xs text-faint">
                 This view is shareable — the address bar (or Copy link) keeps your
-                search and category.
+                search, tag, and category.
               </p>
             )}
           </div>
@@ -378,14 +385,24 @@ export default function Directory({ sites }: { sites: Site[] }) {
                           </p>
                           {site.tags && site.tags.length > 0 && (
                             <div className="mt-3 flex flex-wrap gap-1.5">
-                              {site.tags.slice(0, 4).map((tag) => (
-                                <span
-                                  key={tag}
-                                  className="rounded-md bg-canvas px-1.5 py-0.5 text-[11px] text-faint ring-1 ring-border"
-                                >
-                                  {tag}
-                                </span>
-                              ))}
+                              {site.tags.slice(0, 4).map((tag) => {
+                                const active = query.trim().toLowerCase() === tag.toLowerCase();
+                                return (
+                                  <button
+                                    key={tag}
+                                    type="button"
+                                    onClick={(e) => onTagClick(tag, e)}
+                                    className={`rounded-md px-1.5 py-0.5 text-[11px] transition ${
+                                      active
+                                        ? "bg-accent text-white ring-1 ring-accent"
+                                        : "bg-canvas text-faint ring-1 ring-border hover:bg-accent-soft hover:text-accent-hover"
+                                    }`}
+                                    title={`Filter by "${tag}"`}
+                                  >
+                                    {tag}
+                                  </button>
+                                );
+                              })}
                             </div>
                           )}
                           <span className="mt-3 text-xs font-medium text-accent opacity-0 transition group-hover:opacity-100">
