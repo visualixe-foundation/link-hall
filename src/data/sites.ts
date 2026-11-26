@@ -330,6 +330,13 @@ export const sites: Site[] = [
     category: "Movies & Watch",
     tags: ["streaming", "movies", "tv", "anime", "manga", "curated"],
   },
+  {
+    name: "HollyMovieHD",
+    url: "https://hollymoviehd.cc/",
+    description: "Free HD movies, TV shows, dramas, and anime with English subtitles.",
+    category: "Movies & Watch",
+    tags: ["movies", "streaming", "tv", "anime", "drama", "hd"],
+  },
 
   // Torrents
   {
